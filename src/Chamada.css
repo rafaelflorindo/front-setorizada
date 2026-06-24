@@ -139,3 +139,42 @@
     float: right;
   }
 }
+/* SELETOR DE DATAS */
+.seletor-data {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.seletor-data label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #4a5568;
+}
+
+.seletor-data select {
+  padding: 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #2d3748;
+  cursor: pointer;
+  outline: none;
+}
+
+.seletor-data select:focus {
+  border-color: #2b6cb0;
+  box-shadow: 0 0 0 2px rgba(43, 108, 176, 0.2);
+}
+
+/* Ajuste na Media Query para alinhar o select ao lado do título no Desktop */
+@media (min-width: 768px) {
+  .seletor-data {
+    margin-top: 0;
+    width: auto;
+    min-width: 250px;
+  }
+}
