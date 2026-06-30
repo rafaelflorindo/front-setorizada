@@ -1,0 +1,16 @@
+:root {
+  --primary: #1F4E79;
+  --secondary: #4CAF50;
+  --danger: #D32F2F;
+  --warning: #F9A825;
+
+  --background: #F4F6F8;
+  --card: #FFFFFF;
+  --text: #333333;
+  --border: #E0E0E0;
+
+  --radius: 8px;
+  --shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+  --transition: 0.2s ease-in-out;
+}
