@@ -1,11 +1,17 @@
-@media (max-width: 767px) {
-  .desktop-only {
-    display: none;
-  }
+/* Mobile */
+
+@media (max-width:767px){
+
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .tablet-only {
-    display: block;
-  }
+/* Tablet */
+
+@media (min-width:768px) and (max-width:1023px){
+
+}
+
+/* Notebook */
+
+@media (min-width:1024px){
+
 }

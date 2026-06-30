@@ -1,21 +1,22 @@
-import { Outlet } from 'react-router-dom'
-import Sidebar from '@components/Sidebar/Sidebar'
-import Header from '@components/Header/Header'
+import { Outlet } from "react-router-dom";
 
-import './MainLayout.css'
+import Header from "@components/Header";
+import Sidebar from "@components/Sidebar";
+
+import styles from "./MainLayout.module.css";
 
 export default function MainLayout() {
   return (
-    <div className="layout">
+    <div className={styles.layout}>
       <Sidebar />
 
-      <div className="content">
+      <div className={styles.content}>
         <Header />
 
-        <main className="page">
+        <main className={styles.main}>
           <Outlet />
         </main>
       </div>
     </div>
-  )
+  );
 }
