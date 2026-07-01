@@ -1,55 +1,54 @@
 import { useEffect, useState } from "react";
-
 import usuarioService from "@services/usuarios";
 
 export default function Dashboard() {
 
-  const [usuarios, setUsuarios] = useState([]);
+    const [usuarios, setUsuarios] = useState([]);
 
-  useEffect(() => {
+    useEffect(() => {
+        carregarUsuarios();
+    }, []);
 
-    carregarUsuarios();
+    async function carregarUsuarios() {
 
-  }, []);
+        try {
 
-  async function carregarUsuarios() {
+            const response = await usuarioService.listar();
+            console.log(response);
+            setUsuarios(response.data.usuarios);
 
-    try {
+        } catch (error) {
 
-      const response = await usuarioService.listar();
+            console.error(error);
 
-      console.log(response.data);
-
-      setUsuarios(response.data);
-
-    } catch (error) {
-
-      console.error(error);
+        }
 
     }
 
-  }
+    return (
 
-  return (
+        <div>
 
-    <div>
+            <h1>Dashboard</h1>
 
-      <h1>Dashboard</h1>
+            <hr />
 
-      <hr />
+            {usuarios.map(usuario => (
 
-      {usuarios.map(usuario => (
+                <div key={usuario.id}>
 
-        <p key={usuario.id}>
+                    <h3>{usuario.nome}</h3>
 
-          {usuario.nome}
+                    <p>{usuario.instrumento}</p>
 
-        </p>
+                    <p>{usuario.tipo}</p>
 
-      ))}
+                </div>
 
-    </div>
+            ))}
 
-  );
+        </div>
+
+    );
 
 }

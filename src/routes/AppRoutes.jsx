@@ -4,12 +4,12 @@ import MainLayout from "@layouts/MainLayout";
 
 import Login from "@pages/Login";
 import Dashboard from "@pages/Dashboard";
+import Usuarios from "@pages/Usuarios";
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-
         <Route path="/" element={<Login />} />
 
         <Route element={<MainLayout />}>
@@ -17,8 +17,12 @@ export default function AppRoutes() {
             path="/dashboard"
             element={<Dashboard />}
           />
-        </Route>
 
+          <Route
+            path="/usuarios"
+            element={<Usuarios />}
+          />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
