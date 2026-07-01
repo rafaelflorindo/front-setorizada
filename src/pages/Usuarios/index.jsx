@@ -3,38 +3,45 @@ import { useEffect, useState } from "react";
 import usuarioService from "@services/usuarios";
 
 import UsuarioCard from "./components/UsuarioCard";
+import UsuarioModal from "./components/UsuarioModal"
+import UsuarioForm from "./components/UsuarioForm"
 
 import styles from "./Usuarios.module.css";
 
+
 export default function Usuarios() {
 
-    const [usuarios,setUsuarios]=useState([]);
+    const [usuarios, setUsuarios] = useState([]);
 
-    const [loading,setLoading]=useState(true);
+    const [loading, setLoading] = useState(true);
 
-    useEffect(()=>{
+    const [modalAberto, setModalAberto] = useState(false);
+
+    const [usuarioSelecionado, setUsuarioSelecionado] = useState(null);
+
+    useEffect(() => {
 
         carregarUsuarios();
 
-    },[]);
+    }, []);
 
-    async function carregarUsuarios(){
+    async function carregarUsuarios() {
 
-        try{
+        try {
 
-            const response=await usuarioService.listar();
+            const response = await usuarioService.listar();
 
             setUsuarios(response.data.usuarios);
 
         }
 
-        catch(error){
+        catch (error) {
 
             console.log(error);
 
         }
 
-        finally{
+        finally {
 
             setLoading(false);
 
@@ -42,17 +49,57 @@ export default function Usuarios() {
 
     }
 
-    async function excluir(id){
+    async function salvar(dados) {
 
-        const confirmar=window.confirm(
+        try {
+
+            if (dados.id) {
+
+                await usuarioService.atualizar(
+
+                    dados.id,
+
+                    dados
+
+                );
+
+            }
+
+            else {
+
+                await usuarioService.criar(
+
+                    dados
+
+                );
+
+            }
+
+            setModalAberto(false);
+
+            carregarUsuarios();
+
+        }
+
+        catch (error) {
+
+            console.log(error);
+
+        }
+
+    }
+
+    async function excluir(id) {
+
+        const confirmar = window.confirm(
 
             "Deseja realmente excluir?"
 
         );
 
-        if(!confirmar) return;
+        if (!confirmar) return;
 
-        try{
+        try {
 
             await usuarioService.excluir(id);
 
@@ -60,7 +107,7 @@ export default function Usuarios() {
 
         }
 
-        catch(error){
+        catch (error) {
 
             alert("Erro ao excluir.");
 
@@ -68,19 +115,21 @@ export default function Usuarios() {
 
     }
 
-    function editar(usuario){
+    function editar(usuario) {
 
-        console.log(usuario);
+        setUsuarioSelecionado(usuario);
+
+        setModalAberto(true);
 
     }
 
-    if(loading){
+    if (loading) {
 
         return <h2>Carregando...</h2>
 
     }
 
-    return(
+    return (
 
         <div className={styles.container}>
 
@@ -88,10 +137,13 @@ export default function Usuarios() {
 
                 <h1>Usuários</h1>
 
-                <button>
-
+                <button
+                    onClick={() => {
+                        setUsuarioSelecionado(null);
+                        setModalAberto(true);
+                    }}
+                >
                     Novo Usuário
-
                 </button>
 
             </div>
@@ -100,7 +152,7 @@ export default function Usuarios() {
 
                 {
 
-                    usuarios.map(usuario=>(
+                    usuarios.map(usuario => (
 
                         <UsuarioCard
 
@@ -119,6 +171,30 @@ export default function Usuarios() {
                 }
 
             </div>
+
+            <UsuarioModal
+
+                aberto={modalAberto}
+
+                titulo={
+                    usuarioSelecionado
+                        ? "Editar Usuário"
+                        : "Novo Usuário"
+                }
+
+                onClose={() => setModalAberto(false)}
+
+            >
+
+                <UsuarioForm
+
+                    usuario={usuarioSelecionado}
+
+                    onSalvar={salvar}
+
+                />
+
+            </UsuarioModal>
 
         </div>
 
