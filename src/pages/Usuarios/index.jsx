@@ -1,66 +1,127 @@
 import { useEffect, useState } from "react";
+
 import usuarioService from "@services/usuarios";
+
+import UsuarioCard from "./components/UsuarioCard";
 
 import styles from "./Usuarios.module.css";
 
 export default function Usuarios() {
-  const [usuarios, setUsuarios] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    carregarUsuarios();
-  }, []);
+    const [usuarios,setUsuarios]=useState([]);
 
-  async function carregarUsuarios() {
-    try {
-      const response = await usuarioService.listar();
+    const [loading,setLoading]=useState(true);
 
-      setUsuarios(response.data.usuarios);
-    } catch (error) {
-      console.error(error);
-      alert("Erro ao carregar usuários");
-    } finally {
-      setLoading(false);
+    useEffect(()=>{
+
+        carregarUsuarios();
+
+    },[]);
+
+    async function carregarUsuarios(){
+
+        try{
+
+            const response=await usuarioService.listar();
+
+            setUsuarios(response.data.usuarios);
+
+        }
+
+        catch(error){
+
+            console.log(error);
+
+        }
+
+        finally{
+
+            setLoading(false);
+
+        }
+
     }
-  }
 
-  if (loading) {
-    return <h2>Carregando...</h2>;
-  }
+    async function excluir(id){
 
-  return (
-    <div className={styles.container}>
-      <h1>Usuários</h1>
+        const confirmar=window.confirm(
 
-      <div className={styles.lista}>
-        {usuarios.map((usuario) => (
-          <div
-            key={usuario.id}
-            className={styles.card}
-          >
-            <h3>{usuario.nome}</h3>
+            "Deseja realmente excluir?"
 
-            <p>
-              <strong>Tipo:</strong> {usuario.tipo}
-            </p>
+        );
 
-            <p>
-              <strong>Instrumento:</strong>{" "}
-              {usuario.instrumento}
-            </p>
+        if(!confirmar) return;
 
-            <p>
-              <strong>Telefone:</strong>{" "}
-              {usuario.telefone}
-            </p>
+        try{
 
-            <p>
-              <strong>Congregação:</strong>{" "}
-              {usuario.comumCongregacao}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+            await usuarioService.excluir(id);
+
+            carregarUsuarios();
+
+        }
+
+        catch(error){
+
+            alert("Erro ao excluir.");
+
+        }
+
+    }
+
+    function editar(usuario){
+
+        console.log(usuario);
+
+    }
+
+    if(loading){
+
+        return <h2>Carregando...</h2>
+
+    }
+
+    return(
+
+        <div className={styles.container}>
+
+            <div className={styles.header}>
+
+                <h1>Usuários</h1>
+
+                <button>
+
+                    Novo Usuário
+
+                </button>
+
+            </div>
+
+            <div className={styles.lista}>
+
+                {
+
+                    usuarios.map(usuario=>(
+
+                        <UsuarioCard
+
+                            key={usuario.id}
+
+                            usuario={usuario}
+
+                            onEditar={editar}
+
+                            onExcluir={excluir}
+
+                        />
+
+                    ))
+
+                }
+
+            </div>
+
+        </div>
+
+    )
+
 }

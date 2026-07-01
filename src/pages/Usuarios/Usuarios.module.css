@@ -1,18 +1,29 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
 }
 
-.lista {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
 }
 
-.card {
-  background: white;
-  border-radius: 10px;
-  padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+.lista{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+
+    gap:20px;
+
 }
