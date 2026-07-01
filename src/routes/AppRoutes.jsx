@@ -18,10 +18,16 @@ export default function AppRoutes() {
             element={<Dashboard />}
           />
 
-          <Route
+          {/*<Route
             path="/usuarios"
             element={<Usuarios />}
-          />
+          />*/}
+
+          <Route path="/usuarios" element={<ListaUsuarios />} />
+
+          <Route path="/usuarios/novo" element={<FormUsuario />} />
+
+          <Route path="/usuarios/:id" element={<FormUsuario />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,0 +1,58 @@
+.container{
+
+    max-width:900px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+.form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+section{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    padding:20px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+}
+
+input,
+select{
+
+    padding:12px;
+
+    font-size:15px;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+}

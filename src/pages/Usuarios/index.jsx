@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import usuarioService from "@services/usuarios";
 
@@ -10,7 +11,7 @@ import styles from "./Usuarios.module.css";
 
 
 export default function Usuarios() {
-
+    const navigate = useNavigate();
     const [usuarios, setUsuarios] = useState([]);
 
     const [loading, setLoading] = useState(true);
@@ -117,9 +118,7 @@ export default function Usuarios() {
 
     function editar(usuario) {
 
-        setUsuarioSelecionado(usuario);
-
-        setModalAberto(true);
+        navigate(`/usuarios/${usuario.id}`);
 
     }
 
@@ -138,10 +137,7 @@ export default function Usuarios() {
                 <h1>Usuários</h1>
 
                 <button
-                    onClick={() => {
-                        setUsuarioSelecionado(null);
-                        setModalAberto(true);
-                    }}
+                    onClick={() => navigate("/usuarios/novo")}
                 >
                     Novo Usuário
                 </button>
