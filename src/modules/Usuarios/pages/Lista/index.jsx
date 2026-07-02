@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 //import usuarioService from "@services/usuarios";
 import usuarioService from "../../services";
-import UsuarioCard from "../../components/UsuarioCard";
-
+//import UsuarioCard from "../../components/UsuarioCard";
+import UsuarioTable from "../../components/UsuarioTable";
 import styles from "./Lista.module.css";
 
 export default function ListaUsuarios() {
@@ -87,19 +87,17 @@ export default function ListaUsuarios() {
 
                     usuarios.map(usuario => (
 
-                        <UsuarioCard
+                       <UsuarioTable
 
-                            key={usuario.id}
+    usuarios={usuarios}
 
-                            usuario={usuario}
+    onEditar={(id)=>navigate(`/usuarios/${id}`)}
 
-                            onEditar={() => navigate(`/usuarios/${usuario.id}`)}
+    onExcluir={excluir}
 
-                            onExcluir={() => excluir(usuario.id)}
+/>
 
-                        />
-
-                    ))
+                ))
 
                 }
 
