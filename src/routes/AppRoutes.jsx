@@ -5,8 +5,8 @@ import MainLayout from "@layouts/MainLayout";
 import Login from "@pages/Login";
 import Dashboard from "@pages/Dashboard";
 
-import ListaUsuarios from "@modules/Usuarios/Lista";
-import FormUsuario from "@modules/Usuarios/Form";
+import ListaUsuarios from "@modules/Usuarios/pages/Lista";
+import FormUsuario from "@modules/Usuarios/pages/Form";
 
 export default function AppRoutes() {
 

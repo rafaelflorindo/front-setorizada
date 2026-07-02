@@ -139,34 +139,6 @@ export default function FormUsuario() {
 
     }
 
-    function alterar(e) {
-
-        const {
-
-            name,
-
-            value,
-
-            checked,
-
-            type
-
-        } = e.target;
-
-        setDados(prev => ({
-
-            ...prev,
-
-            [name]: type === "checkbox"
-
-                ? checked
-
-                : value
-
-        }));
-
-    }
-
     async function salvar(e){
 
         e.preventDefault();

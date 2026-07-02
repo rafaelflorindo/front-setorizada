@@ -50,15 +50,23 @@
 
 .sidebar a{
 
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
     color:white;
 
     text-decoration:none;
 
-    padding:12px;
+    padding:14px;
 
-    border-radius:8px;
+    border-radius:10px;
 
-    transition:.2s;
+    transition:.25s;
+
+    font-weight:500;
 
 }
 

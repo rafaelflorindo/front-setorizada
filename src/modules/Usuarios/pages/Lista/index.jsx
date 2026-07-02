@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 //import usuarioService from "@services/usuarios";
 import usuarioService from "../../services";
-import UsuarioCard from "../components/UsuarioCard";
+import UsuarioCard from "../../components/UsuarioCard";
 
 import styles from "./Lista.module.css";
 

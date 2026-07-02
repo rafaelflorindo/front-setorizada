@@ -33,7 +33,12 @@
       "@styles/*": ["src/styles/*"],
 
       "@utils": ["src/utils"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+
+      "@modules/*": ["src/modules/*"],
+
+      "@constants": ["src/constants"],
+      "@constants/*": ["src/constants/*"],
     }
   }
 }

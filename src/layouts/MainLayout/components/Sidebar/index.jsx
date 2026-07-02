@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import {
+    LayoutDashboard,
+    Users,
+    CalendarCheck,
+    FileText,
+    Menu,
+    X
+} from "lucide-react";
 import styles from "./Sidebar.module.css";
 
 export default function Sidebar() {
@@ -16,8 +23,8 @@ export default function Sidebar() {
     return (
 
         <>
-
-            <button
+            <Menu size={28} />
+            {/*<button
 
                 className={styles.menuButton}
 
@@ -27,7 +34,7 @@ export default function Sidebar() {
 
                 ☰
 
-            </button>
+            </button>*/}
 
             <aside
 
@@ -38,8 +45,8 @@ export default function Sidebar() {
                 <div className={styles.logo}>
 
                     <h2>Setorizada</h2>
-
-                    <button
+                    <X size={28} />
+                    {/*<button
 
                         className={styles.close}
 
@@ -49,57 +56,41 @@ export default function Sidebar() {
 
                         ✕
 
-                    </button>
+                    </button>*/}
 
                 </div>
 
                 <nav>
 
-                    <NavLink
+                    <NavLink to="/dashboard">
 
-                        to="/dashboard"
+                        <LayoutDashboard size={20} />
 
-                        onClick={() => setAberto(false)}
-
-                    >
-
-                        Dashboard
+                        <span>Dashboard</span>
 
                     </NavLink>
 
-                    <NavLink
+                    <NavLink to="/usuarios">
 
-                        to="/usuarios"
+                        <Users size={20} />
 
-                        onClick={() => setAberto(false)}
-
-                    >
-
-                        Usuários
+                        <span>Usuários</span>
 
                     </NavLink>
 
-                    <NavLink
+                    <NavLink to="/frequencias">
 
-                        to="/frequencias"
+                        <CalendarCheck size={20} />
 
-                        onClick={() => setAberto(false)}
-
-                    >
-
-                        Frequências
+                        <span>Frequências</span>
 
                     </NavLink>
 
-                    <NavLink
+                    <NavLink to="/relatorios">
 
-                        to="/relatorios"
+                        <FileText size={20} />
 
-                        onClick={() => setAberto(false)}
-
-                    >
-
-                        Relatórios
+                        <span>Relatórios</span>
 
                     </NavLink>
 

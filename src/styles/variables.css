@@ -1,63 +1,27 @@
 :root{
 
-    /* Cores */
+    --primary:#2563eb;
 
-    --color-primary:#1F4E79;
-    --color-primary-light:#2E6A9F;
+    --primary-dark:#1d4ed8;
 
-    --color-secondary:#2E7D32;
+    --secondary:#64748b;
 
-    --color-success:#2E7D32;
-    --color-warning:#F9A825;
-    --color-danger:#C62828;
-    --color-info:#0288D1;
+    --success:#16a34a;
 
-    --color-background:#F5F7FA;
-    --color-surface:#FFFFFF;
+    --warning:#eab308;
 
-    --color-text:#212121;
-    --color-text-light:#616161;
+    --danger:#dc2626;
 
-    --color-border:#E0E0E0;
+    --background:#f3f4f6;
 
-    --color-sidebar:#173A5E;
-    --color-sidebar-hover:#204C78;
+    --surface:#ffffff;
 
-    /* Tipografia */
+    --text:#111827;
 
-    --font-family:'Inter',sans-serif;
+    --text-light:#6b7280;
 
-    --font-h1:32px;
-    --font-h2:28px;
-    --font-h3:24px;
-    --font-h4:20px;
+    --border:#e5e7eb;
 
-    --font-body:16px;
-    --font-small:14px;
-    --font-caption:12px;
+    --sidebar:#1f2937;
 
-    /* Espaçamento */
-
-    --space-xs:4px;
-    --space-sm:8px;
-    --space-md:16px;
-    --space-lg:24px;
-    --space-xl:32px;
-    --space-xxl:48px;
-
-    /* Bordas */
-
-    --radius-sm:6px;
-    --radius-md:10px;
-    --radius-lg:16px;
-
-    /* Sombras */
-
-    --shadow-sm:0 2px 4px rgba(0,0,0,.08);
-    --shadow-md:0 4px 10px rgba(0,0,0,.10);
-    --shadow-lg:0 10px 25px rgba(0,0,0,.15);
-
-    /* Transições */
-
-    --transition:.2s ease;
 }
