@@ -22,8 +22,8 @@ export default function DadosPessoais({
 
             <Input
                 label="Idade"
-                name="idade"
                 type="number"
+                name="idade"
                 value={dados.idade}
                 onChange={alterar}
             />
@@ -35,12 +35,20 @@ export default function DadosPessoais({
                 onChange={alterar}
             />
 
-            <Input
-                label="Telefone Responsável"
-                name="telefoneResponsavel"
-                value={dados.telefoneResponsavel}
-                onChange={alterar}
-            />
+            {
+
+                Number(dados.idade) < 18 && (
+
+                    <Input
+                        label="Telefone do Responsável"
+                        name="telefoneResponsavel"
+                        value={dados.telefoneResponsavel}
+                        onChange={alterar}
+                    />
+
+                )
+
+            }
 
             <Checkbox
                 label="Batizado"

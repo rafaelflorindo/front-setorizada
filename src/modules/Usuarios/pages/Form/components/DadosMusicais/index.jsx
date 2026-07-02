@@ -13,30 +13,17 @@ export default function DadosMusicais({
 
 }) {
 
+    const administrativo =
+
+        dados.tipo === "INSTRUTOR" ||
+
+        dados.tipo === "ENCARREGADO LOCAL" ||
+
+        dados.tipo === "ENCARREGADO REGIONAL";
+
     return (
 
         <>
-
-            <Input
-                label="Email"
-                name="email"
-                value={dados.email}
-                onChange={alterar}
-            />
-
-            <Input
-                label="CPF"
-                name="cpf"
-                value={dados.cpf}
-                onChange={alterar}
-            />
-
-            <Input
-                label="Registro"
-                name="numeroRegistroInstrutor"
-                value={dados.numeroRegistroInstrutor}
-                onChange={alterar}
-            />
 
             <Select
                 label="Tipo"
@@ -53,6 +40,47 @@ export default function DadosMusicais({
                 options={instrumentos}
                 onChange={alterar}
             />
+
+            {
+
+                administrativo && (
+
+                    <>
+
+                        <Input
+                            label="E-mail"
+                            name="email"
+                            value={dados.email}
+                            onChange={alterar}
+                        />
+
+                        <Input
+                            label="CPF"
+                            name="cpf"
+                            value={dados.cpf}
+                            onChange={alterar}
+                        />
+
+                    </>
+
+                )
+
+            }
+
+            {
+
+                dados.tipo === "INSTRUTOR" && (
+
+                    <Input
+                        label="Registro de Instrutor"
+                        name="numeroRegistroInstrutor"
+                        value={dados.numeroRegistroInstrutor}
+                        onChange={alterar}
+                    />
+
+                )
+
+            }
 
             <Checkbox
                 label="Responsável pela Setorizada"

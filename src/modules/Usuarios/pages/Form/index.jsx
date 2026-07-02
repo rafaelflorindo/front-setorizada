@@ -3,10 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import usuarioService from "../../services";
 
+import Exames from "./components/Exames";
 import DadosPessoais from "./components/DadosPessoais";
 import Endereco from "./components/Endereco";
 import DadosMusicais from "./components/DadosMusicais";
 import Botoes from "./components/Botoes";
+import useUsuarioForm from "../../hooks/useUsuarioForm";
 
 import styles from "./Form.module.css";
 
@@ -17,8 +19,72 @@ export default function FormUsuario() {
     const { id } = useParams();
 
     const editando = Boolean(id);
+    const {
 
-    const [dados, setDados] = useState({
+        dados,
+    
+        erros,
+    
+        alterar,
+    
+        validar,
+    
+        setDados
+    
+    }=useUsuarioForm({
+    
+        nome:"",
+    
+        idade:"",
+    
+        batizado:false,
+    
+        telefone:"",
+    
+        telefoneResponsavel:"",
+    
+        email:"",
+    
+        cpf:"",
+    
+        numeroRegistroInstrutor:"",
+    
+        endereco:"",
+    
+        bairro:"",
+    
+        complemento:"",
+    
+        instrumento:"VIOLINO",
+    
+        tipo:"ALUNO",
+    
+        responsavelSetorizada:false,
+    
+        comumCongregacao:"Conjunto Requião",
+    
+        dataInicioGem:"",
+    
+        dataEncaminhamentoSetorizada:"",
+    
+        dataLiberacaoEnsaio:"",
+    
+        liberadoEnsaio:false,
+    
+        dataExameRjm:"",
+    
+        aprovadoRjm:false,
+    
+        dataExameCultoOficial:"",
+    
+        aprovadoCultoOficial:false,
+    
+        dataExameOficializacao:"",
+    
+        aprovadoOficializacao:false
+    
+    });
+    /*const [dados, setDados] = useState({
 
         nome: "",
         idade: "",
@@ -43,7 +109,7 @@ export default function FormUsuario() {
 
         comumCongregacao: "Conjunto Requião"
 
-    });
+    });*/
 
     useEffect(() => {
 
@@ -101,34 +167,38 @@ export default function FormUsuario() {
 
     }
 
-    async function salvar(e) {
+    async function salvar(e){
 
         e.preventDefault();
-
-        try {
-
-            if (editando) {
-
-                await usuarioService.atualizar(id, dados);
-
-            }
-
-            else {
-
+    
+        if(!validar()){
+    
+            return;
+    
+        }
+    
+        try{
+    
+            if(editando){
+    
+                await usuarioService.atualizar(id,dados);
+    
+            }else{
+    
                 await usuarioService.criar(dados);
-
+    
             }
-
+    
             navigate("/usuarios");
-
+    
         }
-
-        catch (error) {
-
+    
+        catch(error){
+    
             console.error(error);
-
+    
         }
-
+    
     }
 
     return (
@@ -198,7 +268,19 @@ export default function FormUsuario() {
                     />
 
                 </section>
+                <section className={styles.card}>
 
+                    <h2>Exames e Histórico</h2>
+
+                    <Exames
+
+                        dados={dados}
+
+                        alterar={alterar}
+
+                    />
+
+                </section>
                 <Botoes
 
                     cancelar={() => navigate("/usuarios")}

@@ -12,7 +12,13 @@ export default function Input({
 
     type = "text",
 
-    placeholder = ""
+    placeholder = "",
+
+    required = false,
+
+    disabled = false,
+
+    error = ""
 
 }) {
 
@@ -20,11 +26,21 @@ export default function Input({
 
         <div className={styles.group}>
 
-            {label &&
+            {
 
-                <label>
+                label &&
+
+                <label htmlFor={name}>
 
                     {label}
+
+                    {
+
+                        required &&
+
+                        <span className={styles.required}> *</span>
+
+                    }
 
                 </label>
 
@@ -32,9 +48,11 @@ export default function Input({
 
             <input
 
-                type={type}
+                id={name}
 
                 name={name}
+
+                type={type}
 
                 value={value ?? ""}
 
@@ -42,7 +60,25 @@ export default function Input({
 
                 placeholder={placeholder}
 
+                required={required}
+
+                disabled={disabled}
+
+                className={error ? styles.errorInput : ""}
+
             />
+
+            {
+
+                error &&
+
+                <small className={styles.error}>
+
+                    {error}
+
+                </small>
+
+            }
 
         </div>
 
