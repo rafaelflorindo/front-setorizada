@@ -1,31 +1,22 @@
-import { Outlet } from "react-router-dom";
+import styles from "./Header.module.css";
 
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
+export default function Header() {
 
-import styles from "./MainLayout.module.css";
-
-export default function MainLayout() {
+    const hoje = new Date().toLocaleDateString("pt-BR");
 
     return (
 
-        <div className={styles.layout}>
+        <header className={styles.header}>
 
-            <Sidebar />
+            <div>
 
-            <div className={styles.content}>
+                <h2>Sistema da Setorizada</h2>
 
-                <Header />
-
-                <main className={styles.main}>
-
-                    <Outlet />
-
-                </main>
+                <small>{hoje}</small>
 
             </div>
 
-        </div>
+        </header>
 
     );
 

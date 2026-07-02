@@ -1,64 +1,127 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import styles from "./Sidebar.module.css";
 
 export default function Sidebar() {
 
+    const [aberto, setAberto] = useState(false);
+
+    function toggleMenu() {
+
+        setAberto(!aberto);
+
+    }
+
     return (
 
-        <aside className={styles.sidebar}>
+        <>
 
-            <h2>
+            <button
 
-                Setorizada
+                className={styles.menuButton}
 
-            </h2>
+                onClick={toggleMenu}
 
-            <nav>
+            >
 
-                <NavLink
+                ☰
 
-                    to="/dashboard"
+            </button>
 
-                >
+            <aside
 
-                    Dashboard
+                className={`${styles.sidebar} ${aberto ? styles.open : ""}`}
 
-                </NavLink>
+            >
 
-                <NavLink
+                <div className={styles.logo}>
 
-                    to="/usuarios"
+                    <h2>Setorizada</h2>
 
-                >
+                    <button
 
-                    Usuários
+                        className={styles.close}
 
-                </NavLink>
+                        onClick={toggleMenu}
 
-                <NavLink
+                    >
 
-                    to="/frequencias"
+                        ✕
 
-                >
+                    </button>
 
-                    Frequências
+                </div>
 
-                </NavLink>
+                <nav>
 
-                <NavLink
+                    <NavLink
 
-                    to="/relatorios"
+                        to="/dashboard"
 
-                >
+                        onClick={() => setAberto(false)}
 
-                    Relatórios
+                    >
 
-                </NavLink>
+                        Dashboard
 
-            </nav>
+                    </NavLink>
 
-        </aside>
+                    <NavLink
+
+                        to="/usuarios"
+
+                        onClick={() => setAberto(false)}
+
+                    >
+
+                        Usuários
+
+                    </NavLink>
+
+                    <NavLink
+
+                        to="/frequencias"
+
+                        onClick={() => setAberto(false)}
+
+                    >
+
+                        Frequências
+
+                    </NavLink>
+
+                    <NavLink
+
+                        to="/relatorios"
+
+                        onClick={() => setAberto(false)}
+
+                    >
+
+                        Relatórios
+
+                    </NavLink>
+
+                </nav>
+
+            </aside>
+
+            {
+
+                aberto &&
+
+                <div
+
+                    className={styles.overlay}
+
+                    onClick={toggleMenu}
+
+                />
+
+            }
+
+        </>
 
     );
 

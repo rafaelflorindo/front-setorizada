@@ -4,7 +4,7 @@
 
     min-height:100vh;
 
-    background:#f5f7fb;
+    background:#f3f4f6;
 
 }
 
@@ -16,12 +16,24 @@
 
     flex-direction:column;
 
+    min-width:0;
+
 }
 
 .main{
 
     flex:1;
 
-    padding:25px;
+    padding:30px;
+
+}
+
+@media(max-width:900px){
+
+    .main{
+
+        padding:80px 15px 20px;
+
+    }
 
 }
