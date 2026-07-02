@@ -5,40 +5,50 @@ import MainLayout from "@layouts/MainLayout";
 import Login from "@pages/Login";
 import Dashboard from "@pages/Dashboard";
 
-import ListaUsuarios from "src/modules/Usuarios/pages/Lista"
-import FormUsuario from "src/modules/Usuarios/pages/Form";
+import ListaUsuarios from "@modules/Usuarios/Lista";
+import FormUsuario from "@modules/Usuarios/Form";
 
 export default function AppRoutes() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
 
-        <Route element={<MainLayout />}>
+    return (
 
-          <Route
-            path="/dashboard"
-            element={<Dashboard />}
-          />
+        <BrowserRouter>
 
-          <Route
-            path="/usuarios"
-            element={<ListaUsuarios />}
-          />
+            <Routes>
 
-          <Route
-            path="/usuarios/novo"
-            element={<FormUsuario />}
-          />
+                <Route
+                    path="/"
+                    element={<Login />}
+                />
 
-          <Route
-            path="/usuarios/:id"
-            element={<FormUsuario />}
-          />
+                <Route element={<MainLayout />}>
 
-        </Route>
+                    <Route
+                        path="/dashboard"
+                        element={<Dashboard />}
+                    />
 
-      </Routes>
-    </BrowserRouter>
-  );
+                    <Route
+                        path="/usuarios"
+                        element={<ListaUsuarios />}
+                    />
+
+                    <Route
+                        path="/usuarios/novo"
+                        element={<FormUsuario />}
+                    />
+
+                    <Route
+                        path="/usuarios/:id"
+                        element={<FormUsuario />}
+                    />
+
+                </Route>
+
+            </Routes>
+
+        </BrowserRouter>
+
+    );
+
 }

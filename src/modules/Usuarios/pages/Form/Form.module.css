@@ -1,58 +1,88 @@
-.container{
+.container {
 
-    max-width:900px;
+    width: 100%;
+    max-width: 1000px;
 
-    margin:auto;
+    margin: 30px auto;
 
-    display:flex;
+    padding: 30px;
 
-    flex-direction:column;
+    background: #fff;
 
-    gap:30px;
+    border-radius: 10px;
 
-}
-
-.form{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
 
 }
 
-section{
+.container h1 {
 
-    display:flex;
+    margin-bottom: 30px;
 
-    flex-direction:column;
+    font-size: 28px;
 
-    gap:15px;
-
-    padding:20px;
-
-    border:1px solid #ddd;
-
-    border-radius:8px;
+    color: #222;
 
 }
 
-input,
-select{
+.form {
 
-    padding:12px;
+    display: grid;
 
-    font-size:15px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 20px;
 
 }
 
-.buttons{
+.form > div {
 
-    display:flex;
+    display: flex;
 
-    justify-content:flex-end;
+    flex-direction: column;
 
-    gap:15px;
+}
+
+.buttons {
+
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+}
+
+@media (max-width: 768px) {
+
+    .container {
+
+        margin: 15px;
+
+        padding: 20px;
+
+    }
+
+    .form {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .buttons {
+
+        flex-direction: column;
+
+    }
+
+    .buttons button {
+
+        width: 100%;
+
+    }
 
 }
