@@ -4,6 +4,8 @@
 
     min-height:100vh;
 
+    background:#f5f7fb;
+
 }
 
 .content{
@@ -14,14 +16,12 @@
 
     flex-direction:column;
 
-    background:var(--color-background);
-
 }
 
 .main{
 
     flex:1;
 
-    padding:24px;
+    padding:25px;
 
 }
