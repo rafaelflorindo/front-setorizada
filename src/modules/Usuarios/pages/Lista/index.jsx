@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 //import usuarioService from "@services/usuarios";
 import usuarioService from "../../services";
 //import UsuarioCard from "../../components/UsuarioCard";
+import Filtro from "../../components/Filtro";
 import UsuarioTable from "../../components/UsuarioTable";
 import styles from "./Lista.module.css";
 
@@ -14,13 +15,40 @@ export default function ListaUsuarios() {
     const [usuarios, setUsuarios] = useState([]);
 
     const [loading, setLoading] = useState(true);
+const [filtro,setFiltro]=useState({
 
+    busca:"",
+
+    tipo:"",
+
+    instrumento:""
+
+});
     useEffect(() => {
 
         carregarUsuarios();
 
     }, []);
 
+    function alterarFiltro(e){
+
+    const{
+
+        name,
+
+        value
+
+    }=e.target;
+
+    setFiltro({
+
+        ...filtro,
+
+        [name]:value
+
+    });
+
+}
     async function carregarUsuarios() {
 
         try {
@@ -64,7 +92,22 @@ export default function ListaUsuarios() {
         return <h2>Carregando...</h2>;
 
     }
+const usuariosFiltrados=usuarios.filter(usuario=>{
 
+    const nome=usuario.nome
+        .toLowerCase()
+        .includes(filtro.busca.toLowerCase());
+
+    const tipo=filtro.tipo===""
+        ||usuario.tipo===filtro.tipo;
+
+    const instrumento=filtro.instrumento===""
+
+        ||usuario.instrumento===filtro.instrumento;
+
+    return nome && tipo && instrumento;
+
+});
     return (
 
         <div className={styles.container}>
@@ -80,12 +123,18 @@ export default function ListaUsuarios() {
                 </button>
 
             </div>
+<Filtro
 
+    filtro={filtro}
+
+    alterar={alterarFiltro}
+
+/>
             <div className={styles.lista}>
 
                 {
 
-                    usuarios.map(usuario => (
+                    usuariosFiltrados.map(usuario => (
 
                        <UsuarioTable
 
