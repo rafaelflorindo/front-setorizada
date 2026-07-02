@@ -1,0 +1,51 @@
+.badge{
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:.8rem;
+
+    font-weight:600;
+
+    color:white;
+
+}
+
+.aluno{
+
+    background:#2563eb;
+
+}
+
+.instrutor{
+
+    background:#16a34a;
+
+}
+
+.local{
+
+    background:#ea580c;
+
+}
+
+.regional{
+
+    background:#9333ea;
+
+}
+
+.ativo{
+
+    background:#22c55e;
+
+}
+
+.inativo{
+
+    background:#ef4444;
+
+}

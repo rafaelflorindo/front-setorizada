@@ -43,3 +43,63 @@
     margin-right:8px;
 
 }
+
+.acoes{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.acoes button{
+
+    border:none;
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.2s;
+
+}
+
+.editar{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.visualizar{
+
+    background:#64748b;
+
+    color:white;
+
+}
+
+.excluir{
+
+    background:#dc2626;
+
+    color:white;
+
+}
+
+.acoes button:hover{
+
+    transform:scale(1.08);
+
+}
