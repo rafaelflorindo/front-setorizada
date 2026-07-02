@@ -1,88 +1,53 @@
-.container {
+.container{
 
-    width: 100%;
-    max-width: 1000px;
+    max-width:1200px;
 
-    margin: 30px auto;
+    margin:30px auto;
 
-    padding: 30px;
-
-    background: #fff;
-
-    border-radius: 10px;
-
-    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    padding:20px;
 
 }
 
-.container h1 {
+.container h1{
 
-    margin-bottom: 30px;
-
-    font-size: 28px;
-
-    color: #222;
+    margin-bottom:30px;
 
 }
 
-.form {
+.form{
 
-    display: grid;
+    display:grid;
 
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-    gap: 20px;
+    gap:25px;
 
 }
 
-.form > div {
+.card{
 
-    display: flex;
+    background:#ffffff;
 
-    flex-direction: column;
+    border-radius:10px;
 
-}
+    padding:25px;
 
-.buttons {
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
 
-    grid-column: 1 / -1;
+    display:grid;
 
-    display: flex;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 
-    justify-content: flex-end;
-
-    gap: 15px;
-
-    margin-top: 30px;
+    gap:20px;
 
 }
 
-@media (max-width: 768px) {
+.card h2{
 
-    .container {
+    grid-column:1/-1;
 
-        margin: 15px;
+    margin-bottom:10px;
 
-        padding: 20px;
+    color:#1f2937;
 
-    }
-
-    .form {
-
-        grid-template-columns: 1fr;
-
-    }
-
-    .buttons {
-
-        flex-direction: column;
-
-    }
-
-    .buttons button {
-
-        width: 100%;
-
-    }
+    font-size:20px;
 
 }
