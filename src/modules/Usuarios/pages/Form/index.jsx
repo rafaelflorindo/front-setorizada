@@ -138,7 +138,7 @@ export default function FormUsuario() {
         }
 
     }
-
+    
     async function salvar(e){
 
         e.preventDefault();
@@ -152,12 +152,77 @@ export default function FormUsuario() {
         try{
     
             if(editando){
-    
-                await usuarioService.atualizar(id,dados);
+    const dadosLimpos = {
+
+    ...dados,
+
+    idade: dados.idade ? Number(dados.idade) : null,
+
+    telefoneResponsavel: dados.telefoneResponsavel || null,
+
+    email: dados.email || null,
+
+    cpf: dados.cpf || null,
+
+    numeroRegistroInstrutor: dados.numeroRegistroInstrutor || null,
+
+    endereco: dados.endereco || null,
+
+    bairro: dados.bairro || null,
+
+    complemento: dados.complemento || null,
+
+    dataInicioGem: dados.dataInicioGem || null,
+
+    dataEncaminhamentoSetorizada: dados.dataEncaminhamentoSetorizada || null,
+
+    dataLiberacaoEnsaio: dados.dataLiberacaoEnsaio || null,
+
+    dataExameRjm: dados.dataExameRjm || null,
+
+    dataExameCultoOficial: dados.dataExameCultoOficial || null,
+
+    dataExameOficializacao: dados.dataExameOficializacao || null
+
+};
+                await usuarioService.atualizar(id,dadosLimpos);
     
             }else{
-    
-                await usuarioService.criar(dados);
+                console.log(dados);
+                const dadosLimpos = {
+
+    ...dados,
+
+    idade: dados.idade ? Number(dados.idade) : null,
+
+    telefoneResponsavel: dados.telefoneResponsavel || null,
+
+    email: dados.email || null,
+
+    cpf: dados.cpf || null,
+
+    numeroRegistroInstrutor: dados.numeroRegistroInstrutor || null,
+
+    endereco: dados.endereco || null,
+
+    bairro: dados.bairro || null,
+
+    complemento: dados.complemento || null,
+
+    dataInicioGem: dados.dataInicioGem || null,
+
+    dataEncaminhamentoSetorizada: dados.dataEncaminhamentoSetorizada || null,
+
+    dataLiberacaoEnsaio: dados.dataLiberacaoEnsaio || null,
+
+    dataExameRjm: dados.dataExameRjm || null,
+
+    dataExameCultoOficial: dados.dataExameCultoOficial || null,
+
+    dataExameOficializacao: dados.dataExameOficializacao || null
+
+};
+                await usuarioService.criar(dadosLimpos);
     
             }
     

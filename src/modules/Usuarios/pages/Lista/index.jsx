@@ -15,40 +15,40 @@ export default function ListaUsuarios() {
     const [usuarios, setUsuarios] = useState([]);
 
     const [loading, setLoading] = useState(true);
-const [filtro,setFiltro]=useState({
+    const [filtro, setFiltro] = useState({
 
-    busca:"",
+        busca: "",
 
-    tipo:"",
+        tipo: "",
 
-    instrumento:""
+        instrumento: ""
 
-});
+    });
     useEffect(() => {
 
         carregarUsuarios();
 
     }, []);
 
-    function alterarFiltro(e){
+    function alterarFiltro(e) {
 
-    const{
+        const {
 
-        name,
+            name,
 
-        value
+            value
 
-    }=e.target;
+        } = e.target;
 
-    setFiltro({
+        setFiltro({
 
-        ...filtro,
+            ...filtro,
 
-        [name]:value
+            [name]: value
 
-    });
+        });
 
-}
+    }
     async function carregarUsuarios() {
 
         try {
@@ -92,22 +92,22 @@ const [filtro,setFiltro]=useState({
         return <h2>Carregando...</h2>;
 
     }
-const usuariosFiltrados=usuarios.filter(usuario=>{
+    const usuariosFiltrados = usuarios.filter(usuario => {
 
-    const nome=usuario.nome
-        .toLowerCase()
-        .includes(filtro.busca.toLowerCase());
+        const nome = usuario.nome
+            .toLowerCase()
+            .includes(filtro.busca.toLowerCase());
 
-    const tipo=filtro.tipo===""
-        ||usuario.tipo===filtro.tipo;
+        const tipo = filtro.tipo === ""
+            || usuario.tipo === filtro.tipo;
 
-    const instrumento=filtro.instrumento===""
+        const instrumento = filtro.instrumento === ""
 
-        ||usuario.instrumento===filtro.instrumento;
+            || usuario.instrumento === filtro.instrumento;
 
-    return nome && tipo && instrumento;
+        return nome && tipo && instrumento;
 
-});
+    });
     return (
 
         <div className={styles.container}>
@@ -123,34 +123,26 @@ const usuariosFiltrados=usuarios.filter(usuario=>{
                 </button>
 
             </div>
-<Filtro
+            <Filtro
 
-    filtro={filtro}
+                filtro={filtro}
 
-    alterar={alterarFiltro}
+                alterar={alterarFiltro}
 
-/>
+            />
             <div className={styles.lista}>
 
-                {
+    <UsuarioTable
 
-                    usuariosFiltrados.map(usuario => (
+        usuarios={usuariosFiltrados}
 
-                       <UsuarioTable
+        onEditar={(id) => navigate(`/usuarios/${id}`)}
 
-    usuarios={usuarios}
+        onExcluir={excluir}
 
-    onEditar={(id)=>navigate(`/usuarios/${id}`)}
+    />
 
-    onExcluir={excluir}
-
-/>
-
-                ))
-
-                }
-
-            </div>
+</div>
 
         </div>
 

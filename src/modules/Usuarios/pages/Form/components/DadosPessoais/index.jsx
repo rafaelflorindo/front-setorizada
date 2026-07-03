@@ -16,7 +16,7 @@ export default function DadosPessoais({
             <Input
                 label="Nome"
                 name="nome"
-                value={dados.nome}
+                value={dados.nome || ""}
                 onChange={alterar}
             />
 
@@ -24,14 +24,14 @@ export default function DadosPessoais({
                 label="Idade"
                 type="number"
                 name="idade"
-                value={dados.idade}
+                value={dados.idade || ""}
                 onChange={alterar}
             />
 
             <Input
                 label="Telefone"
                 name="telefone"
-                value={dados.telefone}
+                value={dados.telefone || ""}
                 onChange={alterar}
             />
 
@@ -42,7 +42,7 @@ export default function DadosPessoais({
                     <Input
                         label="Telefone do Responsável"
                         name="telefoneResponsavel"
-                        value={dados.telefoneResponsavel}
+                        value={dados.telefoneResponsavel || ""}
                         onChange={alterar}
                     />
 

@@ -21,35 +21,35 @@ export default function UsuarioTable({
     onExcluir
 
 }) {
-function badgeTipo(tipo){
+    function badgeTipo(tipo) {
 
-    switch(tipo){
+        switch (tipo) {
 
-        case "ALUNO":
+            case "ALUNO":
 
-            return "aluno";
+                return "aluno";
 
-        case "INSTRUTOR":
+            case "INSTRUTOR":
 
-            return "instrutor";
+                return "instrutor";
 
-        case "ENCARREGADO LOCAL":
+            case "ENCARREGADO LOCAL":
 
-            return "local";
+                return "local";
 
-        default:
+            default:
 
-            return "regional";
+                return "regional";
+
+        }
 
     }
 
-}
+    function badgeStatus(status) {
 
-function badgeStatus(status){
+        return status ? "ativo" : "inativo";
 
-    return status ? "ativo" : "inativo";
-
-}
+    }
     return (
 
         <table className={styles.table}>
@@ -65,6 +65,8 @@ function badgeStatus(status){
                     <th>Instrumento</th>
 
                     <th>Telefone</th>
+
+                    <th>Comum</th>
 
                     <th>Status</th>
 
@@ -86,73 +88,74 @@ function badgeStatus(status){
 
                             <td>
 
-    <Badge tipo={badgeTipo(usuario.tipo)}>
+                                <Badge tipo={badgeTipo(usuario.tipo)}>
 
-        {usuario.tipo}
+                                    {usuario.tipo}
 
-    </Badge>
+                                </Badge>
 
-</td>
+                            </td>
 
                             <td>{usuario.instrumento}</td>
 
                             <td>{usuario.telefone}</td>
+                            <td>{usuario.comumCongregacao}</td>
 
-                           <td>
+                            <td>
 
-    <Badge tipo={badgeStatus(usuario.status)}>
+                                <Badge tipo={badgeStatus(usuario.status)}>
 
-        {usuario.status ? "Ativo" : "Inativo"}
+                                    {usuario.status ? "Ativo" : "Inativo"}
 
-    </Badge>
+                                </Badge>
 
-</td>
+                            </td>
 
                             <td>
 
                                 <div className={styles.acoes}>
 
-    <button
+                                    <button
 
-        className={styles.editar}
+                                        className={styles.editar}
 
-        onClick={() => onEditar(usuario.id)}
+                                        onClick={() => onEditar(usuario.id)}
 
-        title="Editar"
+                                        title="Editar"
 
-    >
+                                    >
 
-        <Pencil size={18} />
+                                        <Pencil size={18} />
 
-    </button>
+                                    </button>
 
-    <button
+                                    <button
 
-        className={styles.visualizar}
+                                        className={styles.visualizar}
 
-        title="Visualizar"
+                                        title="Visualizar"
 
-    >
+                                    >
 
-        <Eye size={18} />
+                                        <Eye size={18} />
 
-    </button>
+                                    </button>
 
-    <button
+                                    <button
 
-        className={styles.excluir}
+                                        className={styles.excluir}
 
-        onClick={() => onExcluir(usuario.id)}
+                                        onClick={() => onExcluir(usuario.id)}
 
-        title="Excluir"
+                                        title="Excluir"
 
-    >
+                                    >
 
-        <Trash2 size={18} />
+                                        <Trash2 size={18} />
 
-    </button>
+                                    </button>
 
-</div>
+                                </div>
 
                             </td>
 

@@ -50,14 +50,14 @@ export default function DadosMusicais({
                         <Input
                             label="E-mail"
                             name="email"
-                            value={dados.email}
+                            value={dados.email || ""}
                             onChange={alterar}
                         />
 
                         <Input
                             label="CPF"
                             name="cpf"
-                            value={dados.cpf}
+                            value={dados.cpf || ""}
                             onChange={alterar}
                         />
 
