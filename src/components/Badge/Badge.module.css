@@ -1,51 +1,67 @@
 .badge{
 
-    display:inline-block;
+    display:inline-flex;
 
-    padding:6px 12px;
+    align-items:center;
+
+    justify-content:center;
+
+    padding:5px 12px;
 
     border-radius:20px;
 
-    font-size:.8rem;
+    font-size:.82rem;
 
     font-weight:600;
 
-    color:white;
+    white-space:nowrap;
 
 }
 
-.aluno{
+.green{
 
-    background:#2563eb;
+    background:#dcfce7;
 
-}
-
-.instrutor{
-
-    background:#16a34a;
+    color:#15803d;
 
 }
 
-.local{
+.blue{
 
-    background:#ea580c;
+    background:#dbeafe;
 
-}
-
-.regional{
-
-    background:#9333ea;
+    color:#1d4ed8;
 
 }
 
-.ativo{
+.orange{
 
-    background:#22c55e;
+    background:#ffedd5;
+
+    color:#c2410c;
 
 }
 
-.inativo{
+.purple{
 
-    background:#ef4444;
+    background:#ede9fe;
+
+    color:#6d28d9;
+
+}
+
+.red{
+
+    background:#fee2e2;
+
+    color:#b91c1c;
+
+}
+
+.gray{
+
+    background:#e5e7eb;
+
+    color:#374151;
 
 }

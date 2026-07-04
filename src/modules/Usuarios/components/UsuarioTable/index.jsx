@@ -1,13 +1,9 @@
 import Badge from "@components/Badge";
 
 import {
-
     Pencil,
-
     Trash2,
-
     Eye
-
 } from "lucide-react";
 
 import styles from "./UsuarioTable.module.css";
@@ -21,35 +17,7 @@ export default function UsuarioTable({
     onExcluir
 
 }) {
-    function badgeTipo(tipo) {
 
-        switch (tipo) {
-
-            case "ALUNO":
-
-                return "aluno";
-
-            case "INSTRUTOR":
-
-                return "instrutor";
-
-            case "ENCARREGADO LOCAL":
-
-                return "local";
-
-            default:
-
-                return "regional";
-
-        }
-
-    }
-
-    function badgeStatus(status) {
-
-        return status ? "ativo" : "inativo";
-
-    }
     return (
 
         <table className={styles.table}>
@@ -88,22 +56,23 @@ export default function UsuarioTable({
 
                             <td>
 
-                                <Badge tipo={badgeTipo(usuario.tipo)}>
-
-                                    {usuario.tipo}
-
-                                </Badge>
+                                <Badge tipo={usuario.tipo} />
 
                             </td>
 
-                            <td>{usuario.instrumento}</td>
+                            <td>
+
+                                <Badge instrumento={usuario.instrumento} />
+
+                            </td>
 
                             <td>{usuario.telefone}</td>
+
                             <td>{usuario.comumCongregacao}</td>
 
                             <td>
 
-                                <Badge tipo={badgeStatus(usuario.status)}>
+                                <Badge>
 
                                     {usuario.status ? "Ativo" : "Inativo"}
 
@@ -116,13 +85,9 @@ export default function UsuarioTable({
                                 <div className={styles.acoes}>
 
                                     <button
-
                                         className={styles.editar}
-
                                         onClick={() => onEditar(usuario.id)}
-
                                         title="Editar"
-
                                     >
 
                                         <Pencil size={18} />
@@ -130,11 +95,8 @@ export default function UsuarioTable({
                                     </button>
 
                                     <button
-
                                         className={styles.visualizar}
-
                                         title="Visualizar"
-
                                     >
 
                                         <Eye size={18} />
@@ -142,13 +104,9 @@ export default function UsuarioTable({
                                     </button>
 
                                     <button
-
                                         className={styles.excluir}
-
                                         onClick={() => onExcluir(usuario.id)}
-
                                         title="Excluir"
-
                                     >
 
                                         <Trash2 size={18} />
