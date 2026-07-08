@@ -14,7 +14,8 @@ export default function UsuarioTable({
 
     onEditar,
 
-    onExcluir
+    onExcluir,
+    onVisualizar
 
 }) {
 
@@ -95,13 +96,18 @@ export default function UsuarioTable({
                                     </button>
 
                                     <button
-                                        className={styles.visualizar}
-                                        title="Visualizar"
-                                    >
 
-                                        <Eye size={18} />
+    className={styles.visualizar}
 
-                                    </button>
+    onClick={() => onVisualizar(usuario.id)}
+
+    title="Visualizar"
+
+>
+
+    <Eye size={18} />
+
+</button>
 
                                     <button
                                         className={styles.excluir}

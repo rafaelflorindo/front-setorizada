@@ -7,7 +7,7 @@ import Dashboard from "@pages/Dashboard";
 
 import ListaUsuarios from "@modules/Usuarios/pages/Lista";
 import FormUsuario from "@modules/Usuarios/pages/Form";
-
+import VisualizarUsuario from "@modules/Usuarios/pages/Visualizar";
 export default function AppRoutes() {
 
     return (
@@ -42,7 +42,10 @@ export default function AppRoutes() {
                         path="/usuarios/:id"
                         element={<FormUsuario />}
                     />
-
+<Route
+    path="/usuarios/visualizar/:id"
+    element={<VisualizarUsuario />}
+/>
                 </Route>
 
             </Routes>

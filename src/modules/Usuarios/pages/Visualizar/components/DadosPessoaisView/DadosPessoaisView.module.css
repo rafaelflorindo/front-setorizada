@@ -1,0 +1,39 @@
+.grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:20px;
+
+}
+
+.grid div{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+.grid label{
+
+    color:#64748b;
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+}
+
+.grid span{
+
+    font-size:1rem;
+
+    color:#1f2937;
+
+    font-weight:500;
+
+}

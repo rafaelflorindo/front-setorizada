@@ -138,6 +138,8 @@ export default function ListaUsuarios() {
 
         onEditar={(id) => navigate(`/usuarios/${id}`)}
 
+        onVisualizar={(id)=>navigate(`/usuarios/visualizar/${id}`)}
+
         onExcluir={excluir}
 
     />
